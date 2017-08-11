@@ -29,32 +29,42 @@
 
 @implementation ViewController
 
+/**
+ 该项目功能：
+ 实时音视频捕获（数据流），硬编码成aac数据，在解码成pcm ，使用audioQueue播放
+ **/
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /**
-     该项目功能：
-        实时音视频捕获（数据流），硬编码成aac数据，在解码成pcm ，使用audioQueue播放
-     **/
+//    [self testFLV];
     
-//    测试解析flv
-//    FLVAnalysisTool *tool = [[FLVAnalysisTool alloc] init];
-//    [tool test];
+//    [self testAudio];
+    
+    
+}
 
-//    测试写入文件
-//    _path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.aac"];
-//    NSFileManager *manager = [NSFileManager defaultManager];
-//    if ([manager fileExistsAtPath:_path]) {
-//        if ([manager removeItemAtPath:_path error:nil]) {
-//            NSLog(@"删除成功");
-//            if ([manager createFileAtPath:_path contents:nil attributes:nil]) {
-//                NSLog(@"创建文件");
-//            }
-//        }
-//    }
-//
-//     NSLog(@"%@", _path);
-//    _handle = [NSFileHandle fileHandleForWritingAtPath:_path];
+//测试解析flv
+- (void)testFLV {
+    FLVAnalysisTool *tool = [[FLVAnalysisTool alloc] init];
+    [tool test];
+}
+
+//音频测试
+- (void)testAudio {
+    //    测试写入文件
+    //    _path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.aac"];
+    //    NSFileManager *manager = [NSFileManager defaultManager];
+    //    if ([manager fileExistsAtPath:_path]) {
+    //        if ([manager removeItemAtPath:_path error:nil]) {
+    //            NSLog(@"删除成功");
+    //            if ([manager createFileAtPath:_path contents:nil attributes:nil]) {
+    //                NSLog(@"创建文件");
+    //            }
+    //        }
+    //    }
+    //
+    //     NSLog(@"%@", _path);
+    //    _handle = [NSFileHandle fileHandleForWritingAtPath:_path];
     
     //捕获媒体
     _capture = [[TMSystemCapture alloc] initWithType:TMSystemCaptureTypeAudio];//这是我只捕获了音频
@@ -71,7 +81,6 @@
     
     //pcm播放器
     _pcmPalyer = [[TMAudioPCMPlayer alloc] initWithConfig:[TMAudioConfig defaultConifg]];
-
 }
 
 

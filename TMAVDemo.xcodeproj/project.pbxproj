@@ -8,51 +8,51 @@
 
 /* Begin PBXBuildFile section */
 		370D8B941F223D4200D227D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 370D8B931F223D4200D227D7 /* main.m */; };
-		370D8B971F223D4200D227D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 370D8B961F223D4200D227D7 /* AppDelegate.m */; };
-		370D8B9A1F223D4200D227D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 370D8B991F223D4200D227D7 /* ViewController.m */; };
 		370D8B9D1F223D4200D227D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370D8B9B1F223D4200D227D7 /* Main.storyboard */; };
 		370D8B9F1F223D4200D227D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 370D8B9E1F223D4200D227D7 /* Assets.xcassets */; };
 		370D8BA21F223D4200D227D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370D8BA01F223D4200D227D7 /* LaunchScreen.storyboard */; };
-		370D8BAE1F224F4E00D227D7 /* TMSystemCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 370D8BAD1F224F4E00D227D7 /* TMSystemCapture.m */; };
-		370D8BB11F2255A700D227D7 /* TMAVConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 370D8BB01F2255A700D227D7 /* TMAVConfig.m */; };
-		3710D38C1F337EFA0000786D /* FLVAnalysisTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3710D38B1F337EFA0000786D /* FLVAnalysisTool.m */; };
-		3710D38F1F337FEC0000786D /* CommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3710D38E1F337FEC0000786D /* CommonTool.m */; };
-		371186971F2380A1001C5F87 /* TMAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 371186961F2380A1001C5F87 /* TMAudioEncoder.m */; };
-		3713FAF11F3BFFE100FF3388 /* TMAudioPCMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3713FAF01F3BFFE100FF3388 /* TMAudioPCMPlayer.m */; };
-		3713FAF41F3C0EE100FF3388 /* TMAudioDataQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3713FAF31F3C0EE100FF3388 /* TMAudioDataQueue.m */; };
-		37164B701F3AEF19004C075C /* TMCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 37164B6F1F3AEF19004C075C /* TMCaptureManager.m */; };
-		37164B731F3AF251004C075C /* TMAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 37164B721F3AF251004C075C /* TMAudioDecoder.m */; };
+		371681C61F3DB61900B2F1DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681A81F3DB61900B2F1DD /* AppDelegate.m */; };
+		371681C71F3DB61900B2F1DD /* TMAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681AC1F3DB61900B2F1DD /* TMAudioDecoder.m */; };
+		371681C81F3DB61900B2F1DD /* TMAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681AE1F3DB61900B2F1DD /* TMAudioEncoder.m */; };
+		371681C91F3DB61900B2F1DD /* TMAVConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681B01F3DB61900B2F1DD /* TMAVConfig.m */; };
+		371681CA1F3DB61900B2F1DD /* TMAudioPCMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681B51F3DB61900B2F1DD /* TMAudioPCMPlayer.m */; };
+		371681CB1F3DB61900B2F1DD /* TMCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681B91F3DB61900B2F1DD /* TMCaptureManager.m */; };
+		371681CC1F3DB61900B2F1DD /* TMSystemCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681BB1F3DB61900B2F1DD /* TMSystemCapture.m */; };
+		371681CD1F3DB61900B2F1DD /* CommonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681BE1F3DB61900B2F1DD /* CommonTool.m */; };
+		371681CE1F3DB61900B2F1DD /* FLVAnalysisTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681C11F3DB61900B2F1DD /* FLVAnalysisTool.m */; };
+		371681CF1F3DB61900B2F1DD /* TMAudioDataQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681C31F3DB61900B2F1DD /* TMAudioDataQueue.m */; };
+		371681D01F3DB61900B2F1DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681C51F3DB61900B2F1DD /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		370D8B8F1F223D4200D227D7 /* TMAVDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMAVDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		370D8B931F223D4200D227D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		370D8B951F223D4200D227D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		370D8B961F223D4200D227D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		370D8B981F223D4200D227D7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		370D8B991F223D4200D227D7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		370D8B9C1F223D4200D227D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		370D8B9E1F223D4200D227D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		370D8BA11F223D4200D227D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		370D8BA31F223D4200D227D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		370D8BAC1F224F4E00D227D7 /* TMSystemCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSystemCapture.h; sourceTree = "<group>"; };
-		370D8BAD1F224F4E00D227D7 /* TMSystemCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMSystemCapture.m; sourceTree = "<group>"; };
-		370D8BAF1F2255A700D227D7 /* TMAVConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMAVConfig.h; path = ../TMAVConfig.h; sourceTree = "<group>"; };
-		370D8BB01F2255A700D227D7 /* TMAVConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMAVConfig.m; path = ../TMAVConfig.m; sourceTree = "<group>"; };
-		3710D38A1F337EFA0000786D /* FLVAnalysisTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVAnalysisTool.h; sourceTree = "<group>"; };
-		3710D38B1F337EFA0000786D /* FLVAnalysisTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVAnalysisTool.m; sourceTree = "<group>"; };
-		3710D38D1F337FEC0000786D /* CommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTool.h; sourceTree = "<group>"; };
-		3710D38E1F337FEC0000786D /* CommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTool.m; sourceTree = "<group>"; };
-		371186951F2380A1001C5F87 /* TMAudioEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMAudioEncoder.h; path = ../TMAudioEncoder.h; sourceTree = "<group>"; };
-		371186961F2380A1001C5F87 /* TMAudioEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMAudioEncoder.m; path = ../TMAudioEncoder.m; sourceTree = "<group>"; };
-		3713FAEF1F3BFFE100FF3388 /* TMAudioPCMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAudioPCMPlayer.h; sourceTree = "<group>"; };
-		3713FAF01F3BFFE100FF3388 /* TMAudioPCMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAudioPCMPlayer.m; sourceTree = "<group>"; };
-		3713FAF21F3C0EE100FF3388 /* TMAudioDataQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TMAudioDataQueue.h; path = AACEncoder/TMAudioDataQueue.h; sourceTree = "<group>"; };
-		3713FAF31F3C0EE100FF3388 /* TMAudioDataQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TMAudioDataQueue.m; path = AACEncoder/TMAudioDataQueue.m; sourceTree = "<group>"; };
-		37164B6E1F3AEF19004C075C /* TMCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMCaptureManager.h; sourceTree = "<group>"; };
-		37164B6F1F3AEF19004C075C /* TMCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMCaptureManager.m; sourceTree = "<group>"; };
-		37164B711F3AF251004C075C /* TMAudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAudioDecoder.h; sourceTree = "<group>"; };
-		37164B721F3AF251004C075C /* TMAudioDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAudioDecoder.m; sourceTree = "<group>"; };
+		371681A71F3DB61900B2F1DD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		371681A81F3DB61900B2F1DD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		371681AB1F3DB61900B2F1DD /* TMAudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAudioDecoder.h; sourceTree = "<group>"; };
+		371681AC1F3DB61900B2F1DD /* TMAudioDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAudioDecoder.m; sourceTree = "<group>"; };
+		371681AD1F3DB61900B2F1DD /* TMAudioEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAudioEncoder.h; sourceTree = "<group>"; };
+		371681AE1F3DB61900B2F1DD /* TMAudioEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAudioEncoder.m; sourceTree = "<group>"; };
+		371681AF1F3DB61900B2F1DD /* TMAVConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAVConfig.h; sourceTree = "<group>"; };
+		371681B01F3DB61900B2F1DD /* TMAVConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAVConfig.m; sourceTree = "<group>"; };
+		371681B41F3DB61900B2F1DD /* TMAudioPCMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAudioPCMPlayer.h; sourceTree = "<group>"; };
+		371681B51F3DB61900B2F1DD /* TMAudioPCMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAudioPCMPlayer.m; sourceTree = "<group>"; };
+		371681B81F3DB61900B2F1DD /* TMCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMCaptureManager.h; sourceTree = "<group>"; };
+		371681B91F3DB61900B2F1DD /* TMCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMCaptureManager.m; sourceTree = "<group>"; };
+		371681BA1F3DB61900B2F1DD /* TMSystemCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSystemCapture.h; sourceTree = "<group>"; };
+		371681BB1F3DB61900B2F1DD /* TMSystemCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMSystemCapture.m; sourceTree = "<group>"; };
+		371681BD1F3DB61900B2F1DD /* CommonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTool.h; sourceTree = "<group>"; };
+		371681BE1F3DB61900B2F1DD /* CommonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTool.m; sourceTree = "<group>"; };
+		371681C01F3DB61900B2F1DD /* FLVAnalysisTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVAnalysisTool.h; sourceTree = "<group>"; };
+		371681C11F3DB61900B2F1DD /* FLVAnalysisTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVAnalysisTool.m; sourceTree = "<group>"; };
+		371681C21F3DB61900B2F1DD /* TMAudioDataQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAudioDataQueue.h; sourceTree = "<group>"; };
+		371681C31F3DB61900B2F1DD /* TMAudioDataQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAudioDataQueue.m; sourceTree = "<group>"; };
+		371681C41F3DB61900B2F1DD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		371681C51F3DB61900B2F1DD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,14 +85,7 @@
 		370D8B911F223D4200D227D7 /* TMAVDemo */ = {
 			isa = PBXGroup;
 			children = (
-				370F61221F373D9B0076BF04 /* others */,
-				37BD46BF1F259C830053457E /* Capture */,
-				3713FAEE1F3BFFB200FF3388 /* AudioPlayer */,
-				37188F341F3A164000245E10 /* AudioCoder */,
-				370D8B951F223D4200D227D7 /* AppDelegate.h */,
-				370D8B961F223D4200D227D7 /* AppDelegate.m */,
-				370D8B981F223D4200D227D7 /* ViewController.h */,
-				370D8B991F223D4200D227D7 /* ViewController.m */,
+				371681A61F3DB61900B2F1DD /* Classes */,
 				370D8B9B1F223D4200D227D7 /* Main.storyboard */,
 				370D8B9E1F223D4200D227D7 /* Assets.xcassets */,
 				370D8BA01F223D4200D227D7 /* LaunchScreen.storyboard */,
@@ -110,84 +103,105 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		370F61221F373D9B0076BF04 /* others */ = {
+		371681A61F3DB61900B2F1DD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3716819C1F3DA55700B2F1DD /* flv解析 */,
-				3710D38D1F337FEC0000786D /* CommonTool.h */,
-				3710D38E1F337FEC0000786D /* CommonTool.m */,
-				3713FAF21F3C0EE100FF3388 /* TMAudioDataQueue.h */,
-				3713FAF31F3C0EE100FF3388 /* TMAudioDataQueue.m */,
+				371681B71F3DB61900B2F1DD /* Capture */,
+				371681A91F3DB61900B2F1DD /* AVCoder */,
+				371681B21F3DB61900B2F1DD /* AVPlayer */,
+				371681BC1F3DB61900B2F1DD /* Other */,
+				371681C41F3DB61900B2F1DD /* ViewController.h */,
+				371681C51F3DB61900B2F1DD /* ViewController.m */,
+				371681A71F3DB61900B2F1DD /* AppDelegate.h */,
+				371681A81F3DB61900B2F1DD /* AppDelegate.m */,
 			);
-			name = others;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		3713FAEE1F3BFFB200FF3388 /* AudioPlayer */ = {
+		371681A91F3DB61900B2F1DD /* AVCoder */ = {
 			isa = PBXGroup;
 			children = (
-				3713FAEF1F3BFFE100FF3388 /* TMAudioPCMPlayer.h */,
-				3713FAF01F3BFFE100FF3388 /* TMAudioPCMPlayer.m */,
+				371681AA1F3DB61900B2F1DD /* AACEncoder */,
+				371681B11F3DB61900B2F1DD /* VideoCoder */,
+				371681AF1F3DB61900B2F1DD /* TMAVConfig.h */,
+				371681B01F3DB61900B2F1DD /* TMAVConfig.m */,
 			);
-			name = AudioPlayer;
+			path = AVCoder;
+			sourceTree = "<group>";
+		};
+		371681AA1F3DB61900B2F1DD /* AACEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				371681AB1F3DB61900B2F1DD /* TMAudioDecoder.h */,
+				371681AC1F3DB61900B2F1DD /* TMAudioDecoder.m */,
+				371681AD1F3DB61900B2F1DD /* TMAudioEncoder.h */,
+				371681AE1F3DB61900B2F1DD /* TMAudioEncoder.m */,
+			);
 			path = AACEncoder;
 			sourceTree = "<group>";
 		};
-		3716819B1F3DA3B300B2F1DD /* other */ = {
+		371681B11F3DB61900B2F1DD /* VideoCoder */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = other;
+			path = VideoCoder;
 			sourceTree = "<group>";
 		};
-		3716819C1F3DA55700B2F1DD /* flv解析 */ = {
+		371681B21F3DB61900B2F1DD /* AVPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				3710D38A1F337EFA0000786D /* FLVAnalysisTool.h */,
-				3710D38B1F337EFA0000786D /* FLVAnalysisTool.m */,
+				371681B31F3DB61900B2F1DD /* AudioPlayer */,
+				371681B61F3DB61900B2F1DD /* VideoPlayer */,
 			);
-			name = "flv解析";
+			path = AVPlayer;
 			sourceTree = "<group>";
 		};
-		3716819D1F3DA5AD00B2F1DD /* AACHardEncode */ = {
+		371681B31F3DB61900B2F1DD /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				371186951F2380A1001C5F87 /* TMAudioEncoder.h */,
-				371186961F2380A1001C5F87 /* TMAudioEncoder.m */,
+				371681B41F3DB61900B2F1DD /* TMAudioPCMPlayer.h */,
+				371681B51F3DB61900B2F1DD /* TMAudioPCMPlayer.m */,
 			);
-			name = AACHardEncode;
+			path = AudioPlayer;
 			sourceTree = "<group>";
 		};
-		3716819E1F3DA5C900B2F1DD /* AACHardDecode */ = {
+		371681B61F3DB61900B2F1DD /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				37164B711F3AF251004C075C /* TMAudioDecoder.h */,
-				37164B721F3AF251004C075C /* TMAudioDecoder.m */,
 			);
-			name = AACHardDecode;
+			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
-		37188F341F3A164000245E10 /* AudioCoder */ = {
+		371681B71F3DB61900B2F1DD /* Capture */ = {
 			isa = PBXGroup;
 			children = (
-				3716819E1F3DA5C900B2F1DD /* AACHardDecode */,
-				3716819D1F3DA5AD00B2F1DD /* AACHardEncode */,
-				370D8BAF1F2255A700D227D7 /* TMAVConfig.h */,
-				370D8BB01F2255A700D227D7 /* TMAVConfig.m */,
+				371681B81F3DB61900B2F1DD /* TMCaptureManager.h */,
+				371681B91F3DB61900B2F1DD /* TMCaptureManager.m */,
+				371681BA1F3DB61900B2F1DD /* TMSystemCapture.h */,
+				371681BB1F3DB61900B2F1DD /* TMSystemCapture.m */,
 			);
-			name = AudioCoder;
-			path = AACEncoder;
+			path = Capture;
 			sourceTree = "<group>";
 		};
-		37BD46BF1F259C830053457E /* Capture */ = {
+		371681BC1F3DB61900B2F1DD /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				3716819B1F3DA3B300B2F1DD /* other */,
-				37164B6E1F3AEF19004C075C /* TMCaptureManager.h */,
-				37164B6F1F3AEF19004C075C /* TMCaptureManager.m */,
-				370D8BAC1F224F4E00D227D7 /* TMSystemCapture.h */,
-				370D8BAD1F224F4E00D227D7 /* TMSystemCapture.m */,
+				371681BF1F3DB61900B2F1DD /* flv解析 */,
+				371681BD1F3DB61900B2F1DD /* CommonTool.h */,
+				371681BE1F3DB61900B2F1DD /* CommonTool.m */,
+				371681C21F3DB61900B2F1DD /* TMAudioDataQueue.h */,
+				371681C31F3DB61900B2F1DD /* TMAudioDataQueue.m */,
 			);
-			name = Capture;
+			path = Other;
+			sourceTree = "<group>";
+		};
+		371681BF1F3DB61900B2F1DD /* flv解析 */ = {
+			isa = PBXGroup;
+			children = (
+				371681C01F3DB61900B2F1DD /* FLVAnalysisTool.h */,
+				371681C11F3DB61900B2F1DD /* FLVAnalysisTool.m */,
+			);
+			path = "flv解析";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,18 +276,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37164B731F3AF251004C075C /* TMAudioDecoder.m in Sources */,
-				3710D38C1F337EFA0000786D /* FLVAnalysisTool.m in Sources */,
-				3713FAF11F3BFFE100FF3388 /* TMAudioPCMPlayer.m in Sources */,
-				37164B701F3AEF19004C075C /* TMCaptureManager.m in Sources */,
-				371186971F2380A1001C5F87 /* TMAudioEncoder.m in Sources */,
-				370D8B9A1F223D4200D227D7 /* ViewController.m in Sources */,
-				3713FAF41F3C0EE100FF3388 /* TMAudioDataQueue.m in Sources */,
-				370D8BB11F2255A700D227D7 /* TMAVConfig.m in Sources */,
-				370D8BAE1F224F4E00D227D7 /* TMSystemCapture.m in Sources */,
-				370D8B971F223D4200D227D7 /* AppDelegate.m in Sources */,
-				3710D38F1F337FEC0000786D /* CommonTool.m in Sources */,
+				371681CE1F3DB61900B2F1DD /* FLVAnalysisTool.m in Sources */,
+				371681CB1F3DB61900B2F1DD /* TMCaptureManager.m in Sources */,
+				371681CD1F3DB61900B2F1DD /* CommonTool.m in Sources */,
+				371681C61F3DB61900B2F1DD /* AppDelegate.m in Sources */,
+				371681CA1F3DB61900B2F1DD /* TMAudioPCMPlayer.m in Sources */,
 				370D8B941F223D4200D227D7 /* main.m in Sources */,
+				371681D01F3DB61900B2F1DD /* ViewController.m in Sources */,
+				371681C81F3DB61900B2F1DD /* TMAudioEncoder.m in Sources */,
+				371681C71F3DB61900B2F1DD /* TMAudioDecoder.m in Sources */,
+				371681CC1F3DB61900B2F1DD /* TMSystemCapture.m in Sources */,
+				371681C91F3DB61900B2F1DD /* TMAVConfig.m in Sources */,
+				371681CF1F3DB61900B2F1DD /* TMAudioDataQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
