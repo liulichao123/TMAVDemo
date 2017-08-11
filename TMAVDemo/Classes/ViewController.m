@@ -38,7 +38,7 @@
     
 //    [self testFLV];
     
-//    [self testAudio];
+    [self testAudio];
     
     
 }

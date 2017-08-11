@@ -32,13 +32,14 @@ typedef struct {
 
 @implementation TMAudioDecoder
 
+//解码器回调函数
 static OSStatus AudioDecoderConverterComplexInputDataProc(  AudioConverterRef inAudioConverter, UInt32 *ioNumberDataPackets, AudioBufferList *ioData,  AudioStreamPacketDescription **outDataPacketDescription,  void *inUserData) {
     TMAudioUserData *audioDecoder = (TMAudioUserData *)(inUserData);
     if (audioDecoder->size <= 0) {
         ioNumberDataPackets = 0;
         return -1;
     }
-    
+    //填充数据
     *outDataPacketDescription = &audioDecoder->packetDesc;
     (*outDataPacketDescription)[0].mStartOffset = 0;
     (*outDataPacketDescription)[0].mDataByteSize = audioDecoder->size;
@@ -96,6 +97,7 @@ static OSStatus AudioDecoderConverterComplexInputDataProc(  AudioConverterRef in
         outAudioBufferList.mBuffers[0].mDataByteSize = (UInt32)pcmBufferSize;
         outAudioBufferList.mBuffers[0].mData = pcmBuffer;
         
+        //输出描述
         AudioStreamPacketDescription outputPacketDesc = {0};
         //配置填充函数，获取输出数据
         OSStatus status = AudioConverterFillComplexBuffer(_audioConverter, &AudioDecoderConverterComplexInputDataProc, &userData, &pcmDataPacketSize, &outAudioBufferList, &outputPacketDesc);
@@ -105,10 +107,10 @@ static OSStatus AudioDecoderConverterComplexInputDataProc(  AudioConverterRef in
         }
         if (outAudioBufferList.mBuffers[0].mDataByteSize > 0) {
             NSData *rawData = [NSData dataWithBytes:outAudioBufferList.mBuffers[0].mData length:outAudioBufferList.mBuffers[0].mDataByteSize];
-//            dispatch_async(_callbackQueue, ^{
-//                [_delegate decoderCallback:rawData];
-//            });
-            [_delegate decoderCallback:rawData];
+            dispatch_async(_callbackQueue, ^{
+                [_delegate decoderCallback:rawData];
+            });
+            //[_delegate decoderCallback:rawData];
         }
         free(pcmBuffer);
     });

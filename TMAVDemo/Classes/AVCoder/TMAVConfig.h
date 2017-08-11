@@ -4,15 +4,20 @@
 //
 //  Created by 天明 on 2017/7/21.
 //  Copyright © 2017年 天明. All rights reserved.
-//
+//  音视频配置
 
 #import <Foundation/Foundation.h>
 
+/**音频配置*/
 @interface TMAudioConfig : NSObject
-@property (nonatomic, unsafe_unretained) NSInteger bitrate;//可自由设置
-@property (nonatomic, unsafe_unretained) NSInteger channelCount;//可选 1 2
-@property (nonatomic, unsafe_unretained) NSInteger sampleRate;//可选 44100（默认） 22050 11025 5500
-@property (nonatomic, unsafe_unretained) NSInteger sampleSize;//可选 16 8
+/**码率*/
+@property (nonatomic, unsafe_unretained) NSInteger bitrate;//96000）
+/**声道*/
+@property (nonatomic, unsafe_unretained) NSInteger channelCount;//（1）
+/**采样率*/
+@property (nonatomic, unsafe_unretained) NSInteger sampleRate;//(默认44100)
+/**采样点量化*/
+@property (nonatomic, unsafe_unretained) NSInteger sampleSize;//(16)
 
 + (instancetype)defaultConifg;
 @end

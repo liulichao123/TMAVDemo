@@ -25,23 +25,15 @@
 
 @implementation TMAudioEncoder
 
+//编码器回调函数
 static OSStatus aacEncodeInputDataProc(AudioConverterRef inAudioConverter, UInt32 *ioNumberDataPackets, AudioBufferList *ioData, AudioStreamPacketDescription **outDataPacketDescription, void *inUserData) {
-    TMAudioEncoder *aacEncoder = (__bridge TMAudioEncoder *)(inUserData);
-//    //要求填充数据的大小
-//    UInt32 requestPackets = *ioNumberDataPackets;
-//    //填充缓冲区，返回已填充大小
-//    size_t copiedSamples = [aacEncoder copyPCMSamplesIntoBuffer:ioData];
-//    if (copiedSamples < requestPackets) { //还没有填满缓冲区
-//        *ioNumberDataPackets = 0;
-//        return -1;
-//    }
-//    *ioNumberDataPackets = 1;
-//    return noErr;
     
+    TMAudioEncoder *aacEncoder = (__bridge TMAudioEncoder *)(inUserData);
     if (!aacEncoder.pcmBufferSize) {
         *ioNumberDataPackets = 0;
         return  - 1;
     }
+    //填充
     ioData->mBuffers[0].mData = aacEncoder.pcmBuffer;
     ioData->mBuffers[0].mDataByteSize = (uint32_t)aacEncoder.pcmBufferSize;
     ioData->mBuffers[0].mNumberChannels = (uint32_t)aacEncoder.config.channelCount;
@@ -49,26 +41,6 @@ static OSStatus aacEncodeInputDataProc(AudioConverterRef inAudioConverter, UInt3
     aacEncoder.pcmBufferSize = 0;
     *ioNumberDataPackets = 1;
     return noErr;
-}
-
-/**
- 填充pcm数据到缓冲区
- @param ioData 缓冲区
- @return 填充数据的大小
- */
-- (size_t)copyPCMSamplesIntoBuffer:(AudioBufferList*)ioData {
-    //PCM大小
-    size_t originalBufferSize = _pcmBufferSize;
-    if (!originalBufferSize) {
-        return 0;
-    }
-    ioData->mBuffers[0].mData = _pcmBuffer;
-    ioData->mBuffers[0].mDataByteSize = (uint32_t)_pcmBufferSize;
-    ioData->mBuffers[0].mNumberChannels = (uint32_t)_config.channelCount;
-    //清空pcmBuffer
-    _pcmBuffer = NULL;
-    _pcmBufferSize = 0;
-    return originalBufferSize;
 }
 
 - (instancetype)initWithConfig:(TMAudioConfig*)config {
@@ -121,7 +93,7 @@ static OSStatus aacEncodeInputDataProc(AudioConverterRef inAudioConverter, UInt3
         if (status == noErr) {
             NSData *rawAAC = [NSData dataWithBytes: outAudioBufferList.mBuffers[0].mData length:outAudioBufferList.mBuffers[0].mDataByteSize];
             free(pcmBuffer);
-            //添加ADTS头，想要获取裸流时，请忽略添加ADTS头
+            //添加ADTS头，想要获取裸流时，请忽略添加ADTS头，写入文件时，必须添加
 //            NSData *adtsHeader = [self adtsDataForPacketLength:rawAAC.length];
 //            NSMutableData *fullData = [NSMutableData dataWithCapacity:adtsHeader.length + rawAAC.length];;
 //            [fullData appendData:adtsHeader];
