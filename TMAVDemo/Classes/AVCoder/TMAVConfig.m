@@ -38,8 +38,8 @@
     if (self) {
         self.width = 480;
         self.height = 640;
-        self.bitrate = 1000000;
-        self.fps = 20;
+        self.bitrate = 640*1000;
+        self.fps = 25;
     }
     return self;
 }

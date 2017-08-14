@@ -46,8 +46,8 @@ static OSStatus aacEncodeInputDataProc(AudioConverterRef inAudioConverter, UInt3
 - (instancetype)initWithConfig:(TMAudioConfig*)config {
     self = [super init];
     if (self) {
-        _encoderQueue = dispatch_queue_create("aac encoder queue", DISPATCH_QUEUE_SERIAL);
-        _callbackQueue = dispatch_queue_create("aac encoder callback queue", DISPATCH_QUEUE_SERIAL);
+        _encoderQueue = dispatch_queue_create("aac hard encoder queue", DISPATCH_QUEUE_SERIAL);
+        _callbackQueue = dispatch_queue_create("aac hard encoder callback queue", DISPATCH_QUEUE_SERIAL);
         _audioConverter = NULL;
         _pcmBufferSize = 0;
         _pcmBuffer = NULL;
@@ -100,7 +100,7 @@ static OSStatus aacEncodeInputDataProc(AudioConverterRef inAudioConverter, UInt3
 //            [fullData appendData:rawAAC];
     
             dispatch_async(_callbackQueue, ^{
-                [_delegate encoderCallback:rawAAC];
+                [_delegate audioEncodeCallback:rawAAC];
             });
         } else {
              error = [NSError errorWithDomain:NSOSStatusErrorDomain code:status userInfo:nil];
@@ -226,13 +226,12 @@ static OSStatus aacEncodeInputDataProc(AudioConverterRef inAudioConverter, UInt3
     return nil;
 }
 
-- (void)close {
-    AudioConverterDispose(_audioConverter);
-    _audioConverter = NULL;
-}
-
 - (void)dealloc {
-    AudioConverterDispose(_audioConverter);
+    if (_audioConverter) {
+        AudioConverterDispose(_audioConverter);
+        _audioConverter = NULL;
+    }
+    
 }
 
 

@@ -9,18 +9,27 @@
 #import "ViewController.h"
 #import "TMSystemCapture.h"
 #import "FLVAnalysisTool.h"
+#import "TMAudioDataQueue.h"
+
+#import "TMAVConfig.h"
 #import "TMAudioEncoder.h"
 #import "TMAudioDecoder.h"
-#import "TMAudioDataQueue.h"
 #import "TMAudioPCMPlayer.h"
-#import "TMAVConfig.h"
+#import "TMVideoEncoder.h"
+#import "TMVideoDecoder.h"
+#import "AAPLEAGLLayer.h"
 
+@interface ViewController () <TMSystemCaptureDelegate, TMAudioEncoderDelegate, TMAudioDecoderDelegate, TMVideoEncoderDelegate, TMVideoDecoderDelegate>
 
-@interface ViewController () <TMSystemCaptureDelegate, TMAudioEncoderDelegate, TMAudioDecoderDelegate>
 @property (nonatomic, strong) TMSystemCapture *capture;
+
 @property (nonatomic, strong) TMAudioEncoder *audioEncoder;
 @property (nonatomic, strong) TMAudioDecoder *audioDecoder;
 @property(nonatomic, strong) TMAudioPCMPlayer *pcmPalyer;
+
+@property (nonatomic, strong) TMVideoEncoder *videoEncoder;
+@property (nonatomic, strong) TMVideoDecoder *videoDecoder;
+@property (nonatomic, strong) AAPLEAGLLayer *displayLayer;
 
 @property (nonatomic, strong) NSFileHandle *handle;
 @property (nonatomic, copy) NSString *path;
@@ -40,7 +49,7 @@
     
     [self testAudio];
     
-    
+//    [self testVideo];
 }
 
 //测试解析flv
@@ -51,20 +60,24 @@
 
 //音频测试
 - (void)testAudio {
-    //    测试写入文件
-    //    _path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.aac"];
-    //    NSFileManager *manager = [NSFileManager defaultManager];
-    //    if ([manager fileExistsAtPath:_path]) {
-    //        if ([manager removeItemAtPath:_path error:nil]) {
-    //            NSLog(@"删除成功");
-    //            if ([manager createFileAtPath:_path contents:nil attributes:nil]) {
-    //                NSLog(@"创建文件");
-    //            }
-    //        }
-    //    }
-    //
-    //     NSLog(@"%@", _path);
-    //    _handle = [NSFileHandle fileHandleForWritingAtPath:_path];
+//        测试写入文件
+        _path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.aac"];
+        NSFileManager *manager = [NSFileManager defaultManager];
+        if ([manager fileExistsAtPath:_path]) {
+            if ([manager removeItemAtPath:_path error:nil]) {
+                NSLog(@"删除成功");
+                if ([manager createFileAtPath:_path contents:nil attributes:nil]) {
+                    NSLog(@"创建文件");
+                }
+            }
+        }else {
+            if ([manager createFileAtPath:_path contents:nil attributes:nil]) {
+                NSLog(@"创建文件");
+            }
+        }
+    
+         NSLog(@"%@", _path);
+        _handle = [NSFileHandle fileHandleForWritingAtPath:_path];
     
     //捕获媒体
     _capture = [[TMSystemCapture alloc] initWithType:TMSystemCaptureTypeAudio];//这是我只捕获了音频
@@ -83,20 +96,83 @@
     _pcmPalyer = [[TMAudioPCMPlayer alloc] initWithConfig:[TMAudioConfig defaultConifg]];
 }
 
-
-//MARK: delegate
-//捕获音视频回调
-- (void)captureAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer {
-    [_audioEncoder encodeAudioSamepleBuffer:sampleBuffer];
+- (void)testVideo {
     
-//    测试直播播放
-//    NSData *pcmData = [self convertAudioSamepleBufferToPcmData:sampleBuffer];
-//    [_pcmPalyer palyePCMData:pcmData];
-   
+//    测试写入文件
+    _path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"h264test.h264"];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:_path]) {
+        if ([manager removeItemAtPath:_path error:nil]) {
+            NSLog(@"删除成功");
+            if ([manager createFileAtPath:_path contents:nil attributes:nil]) {
+                NSLog(@"创建文件");
+            }
+        }
+    }else {
+        if ([manager createFileAtPath:_path contents:nil attributes:nil]) {
+            NSLog(@"创建文件");
+        }
+    }
+
+     NSLog(@"%@", _path);
+    _handle = [NSFileHandle fileHandleForWritingAtPath:_path];
+    [TMSystemCapture checkCameraAuthor];
+    
+    //捕获媒体
+    _capture = [[TMSystemCapture alloc] initWithType:TMSystemCaptureTypeVideo];//这是我只捕获了视频
+    CGSize size = CGSizeMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    [_capture prepareWithPreviewSize:size];  //捕获视频时传入预览层大小
+    _capture.preview.frame = CGRectMake(0, 100, size.width, size.height);
+    [self.view addSubview:_capture.preview];
+    self.capture.delegate = self;
+    
+    TMVideoConfig *config = [TMVideoConfig defaultConifg];
+    config.width = _capture.witdh;
+    config.height = _capture.height;
+    config.bitrate = config.height * config.width * 5;
+    
+    _videoEncoder = [[TMVideoEncoder alloc] initWithConfig:config];
+    _videoEncoder.delegate = self;
+    
+    _videoDecoder = [[TMVideoDecoder alloc] initWithConfig:config];
+    _videoDecoder.delegate = self;
+    
+    _displayLayer = [[AAPLEAGLLayer alloc] initWithFrame:CGRectMake(size.width, 100, size.width, size.height)];
+    [self.view.layer addSublayer:_displayLayer];
+}
+//开始捕获
+- (IBAction)start:(id)sender {
+    [self.capture start];
+}
+//停止捕获
+- (IBAction)stop:(id)sender {
+    [self.capture stop];
+}
+//关闭文件
+- (IBAction)close:(id)sender {
+    [_handle closeFile];
 }
 
+//MARK: delegate
+/***********************************************************************/
+
+//捕获音视频回调
+- (void)captureSampleBuffer:(CMSampleBufferRef)sampleBuffer type: (TMSystemCaptureType)type {
+    if (type == TMSystemCaptureTypeAudio) {
+        //    测试直接播放
+        //    NSData *pcmData = [self convertAudioSamepleBufferToPcmData:sampleBuffer];
+        //    [_pcmPalyer palyePCMData:pcmData];
+        
+        [_audioEncoder encodeAudioSamepleBuffer:sampleBuffer];
+    }else {
+        [_videoEncoder encodeVideoSampleBuffer:sampleBuffer];
+    }
+}
+
+
+/***********************************************************************/
 //aac编码回调
-- (void)encoderCallback:(NSData *)aacData {
+- (void)audioEncodeCallback:(NSData *)aacData {
     [_audioDecoder decodeAudioAACData:aacData];
     
 //    测试写入文件
@@ -105,25 +181,44 @@
 }
 
 //aac解码回调
-- (void)decoderCallback:(NSData *)pcmData {
+- (void)audioDecodeCallback:(NSData *)pcmData {
+    //解码后播放
     [_pcmPalyer playPCMData:pcmData];
 }
 
-//MARK: Action
+//h264编码回调（sps/pps）
+- (void)videoEncodeCallbacksps:(NSData *)sps pps:(NSData *)pps {
+    //解码
+    [_videoDecoder decodeNaluData:sps];
+    
+//    测试写入文件
+//    [_handle seekToEndOfFile];
+//    [_handle writeData:sps];
 
-//开始捕获
-- (IBAction)start:(id)sender {
-     [self.capture start];
+    //解码（这两个不能直接和在一起解码）
+    [_videoDecoder decodeNaluData:pps];
+    
+//    [_handle seekToEndOfFile];
+//    [_handle writeData:pps];
 }
-//停止捕获
-- (IBAction)stop:(id)sender {
-    [self.capture stop];
+//h264编码回调 （数据）
+- (void)videoEncodeCallback:(NSData *)h264Data {
+    //编码
+    [_videoDecoder decodeNaluData:h264Data];
+//    测试写入文件
+//    [_handle seekToEndOfFile];
+//    [_handle writeData:h264Data];
+}
+//h264解码回调
+- (void)videoDecodeCallback:(CVPixelBufferRef)imageBuffer {
+    //显示
+    if (imageBuffer) {
+        _displayLayer.pixelBuffer = imageBuffer;
+    }
+    
 }
 
-//关闭文件
-- (IBAction)close:(id)sender {
-    [_handle closeFile];
-}
+/***********************************************************************/
 
 // smapleBuffer -> pcmData
 - (NSData *)convertAudioSamepleBufferToPcmData: (CMSampleBufferRef)sampleBuffer {
@@ -146,6 +241,9 @@
 - (AudioStreamBasicDescription)getDesc:(CMSampleBufferRef)sampleBuffer {
      AudioStreamBasicDescription inputAduioDes = *CMAudioFormatDescriptionGetStreamBasicDescription( CMSampleBufferGetFormatDescription(sampleBuffer));
     return inputAduioDes;
+}
+- (IBAction)dismiss:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 @end

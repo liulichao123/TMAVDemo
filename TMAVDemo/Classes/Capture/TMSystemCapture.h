@@ -10,13 +10,6 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-
-@protocol TMSystemCaptureDelegate <NSObject>
-@optional
-- (void)captureAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-- (void)captureViedeoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-@end
-
 //捕获类型
 typedef NS_ENUM(int, TMSystemCaptureType){
     TMSystemCaptureTypeVideo = 0,
@@ -24,19 +17,28 @@ typedef NS_ENUM(int, TMSystemCaptureType){
     TMSystemCaptureTypeAll
 };
 
+@protocol TMSystemCaptureDelegate <NSObject>
+@optional
+- (void)captureSampleBuffer:(CMSampleBufferRef)sampleBuffer type: (TMSystemCaptureType)type;
+
+@end
 
 /**捕获音视频*/
 @interface TMSystemCapture : NSObject
 /**预览层*/
 @property (nonatomic, strong) UIView *preview;
 @property (nonatomic, weak) id<TMSystemCaptureDelegate> delegate;
+/**捕获视频的宽*/
+@property (nonatomic, assign, readonly) NSUInteger witdh;
+/**捕获视频的高*/
+@property (nonatomic, assign, readonly) NSUInteger height;
 
 - (instancetype)initWithType:(TMSystemCaptureType)type;
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 
-/** 准备工作*/
+/** 准备工作(只捕获音频时调用)*/
 - (void)prepare;
-//捕获内容包括视频时调用
+//捕获内容包括视频时调用（预览层大小，添加到view上用来显示）
 - (void)prepareWithPreviewSize:(CGSize)size;
 
 /**开始*/

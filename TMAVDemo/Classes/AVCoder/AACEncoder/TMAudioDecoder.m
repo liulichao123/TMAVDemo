@@ -23,7 +23,7 @@ typedef struct {
 @property (nonatomic, strong) dispatch_queue_t decoderQueue;
 @property (nonatomic, strong) dispatch_queue_t callbackQueue;
 
-@property (nonatomic, unsafe_unretained) AudioConverterRef audioConverter;
+@property (nonatomic) AudioConverterRef audioConverter;
 @property (nonatomic) char *aacBuffer;
 @property (nonatomic) UInt32 aacBufferSize;
 @property (nonatomic) AudioStreamPacketDescription *packetDesc;
@@ -56,8 +56,8 @@ static OSStatus AudioDecoderConverterComplexInputDataProc(  AudioConverterRef in
 - (instancetype)initWithConfig:(TMAudioConfig *)config {
     self = [super init];
     if (self) {
-        _decoderQueue = dispatch_queue_create("aac decoder queue", DISPATCH_QUEUE_SERIAL);
-        _callbackQueue = dispatch_queue_create("aac decoder callback queue", DISPATCH_QUEUE_SERIAL);
+        _decoderQueue = dispatch_queue_create("aac hard decoder queue", DISPATCH_QUEUE_SERIAL);
+        _callbackQueue = dispatch_queue_create("aac hard decoder callback queue", DISPATCH_QUEUE_SERIAL);
         _audioConverter = NULL;
         _aacBufferSize = 0;
         _aacBuffer = NULL;
@@ -108,7 +108,7 @@ static OSStatus AudioDecoderConverterComplexInputDataProc(  AudioConverterRef in
         if (outAudioBufferList.mBuffers[0].mDataByteSize > 0) {
             NSData *rawData = [NSData dataWithBytes:outAudioBufferList.mBuffers[0].mData length:outAudioBufferList.mBuffers[0].mDataByteSize];
             dispatch_async(_callbackQueue, ^{
-                [_delegate decoderCallback:rawData];
+                [_delegate audioDecodeCallback:rawData];
             });
             //[_delegate decoderCallback:rawData];
         }
@@ -198,6 +198,14 @@ static OSStatus AudioDecoderConverterComplexInputDataProc(  AudioConverterRef in
         }
     }
     return nil;
+}
+
+- (void)dealloc {
+    if (_audioConverter) {
+        AudioConverterDispose(_audioConverter);
+        _audioConverter = NULL;
+    }
+    
 }
 
 @end

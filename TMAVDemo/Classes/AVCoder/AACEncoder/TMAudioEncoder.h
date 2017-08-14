@@ -12,7 +12,7 @@
 
 /**AAC编码器代理*/
 @protocol TMAudioEncoderDelegate <NSObject>
-- (void)encoderCallback:(NSData *)aacData;
+- (void)audioEncodeCallback:(NSData *)aacData;
 @end
 
 /**AAC硬编码器*/

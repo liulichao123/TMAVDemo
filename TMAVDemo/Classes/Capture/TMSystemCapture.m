@@ -45,9 +45,6 @@
     TMSystemCaptureType capture;
 }
 
-
-/************************控制********************/
-
 - (instancetype)initWithType:(TMSystemCaptureType)type {
     self = [super init];
     if (self) {
@@ -71,6 +68,7 @@
         [self setupVideo];
     }
 }
+/************************控制********************/
 - (void)start{
     if (!self.isRunning) {
         self.isRunning = YES;
@@ -81,13 +79,14 @@
     if (self.isRunning) {
         self.isRunning = NO;
         [self.captureSession stopRunning];
-        [self destroyCaptureSession];
     }
     
 }
+
 - (void)changeCamera{
     [self switchCamera];
 }
+
 -(void)switchCamera{
     [self.captureSession beginConfiguration];
     [self.captureSession removeInput:self.videoInputDevice];
@@ -161,15 +160,17 @@
 
 /**设置分辨率**/
 - (void)setVideoPreset{
-    if ([self.captureSession canSetSessionPreset:AVCaptureSessionPreset3840x2160]) {
-        [self.captureSession setSessionPreset:AVCaptureSessionPreset3840x2160];
-    }else if ([self.captureSession canSetSessionPreset:AVCaptureSessionPreset1920x1080])  {
+    if ([self.captureSession canSetSessionPreset:AVCaptureSessionPreset1920x1080])  {
         self.captureSession.sessionPreset = AVCaptureSessionPreset1920x1080;
+        _witdh = 1080; _height = 1920;
     }else if ([self.captureSession canSetSessionPreset:AVCaptureSessionPreset1280x720]) {
         self.captureSession.sessionPreset = AVCaptureSessionPreset1280x720;
+        _witdh = 720; _height = 1280;
     }else{
         self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
+        _witdh = 480; _height = 640;
     }
+    
 }
 -(void)updateFps:(NSInteger) fps{
     //获取当前capture设备
@@ -196,7 +197,6 @@
     self.preLayer.frame =  CGRectMake(0, 0, self.prelayerSize.width, self.prelayerSize.height);
     //设置满屏
     self.preLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    NSLog(@"%@",NSStringFromCGRect([UIScreen mainScreen].bounds));
     [self.preview.layer addSublayer:self.preLayer];
 }
 
@@ -209,8 +209,7 @@
 }
 - (dispatch_queue_t)captureQueue{
     if (!_captureQueue) {
-//        _captureQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        _captureQueue = dispatch_queue_create("captureQueue", NULL);
+        _captureQueue = dispatch_queue_create("TMCapture Queue", NULL);
     }
     return _captureQueue;
 }
@@ -219,6 +218,12 @@
         _preview = [[UIView alloc] init];
     }
     return _preview;
+}
+
+
+- (void)dealloc{
+    NSLog(@"capture销毁。。。。");
+    [self destroyCaptureSession];
 }
 
 #pragma mark-销毁会话
@@ -240,20 +245,16 @@
     self.captureSession = nil;
 }
 
-
 #pragma mark-输出代理
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection{
-    if (_isRunning) {
-        if (connection == self.audioConnection) {
-            [_delegate captureAudioSampleBuffer:sampleBuffer];
-        }else if (connection == self.videoConnection) {
-            [_delegate captureViedeoSampleBuffer:sampleBuffer];
-        }
+    if (connection == self.audioConnection) {
+        [_delegate captureSampleBuffer:sampleBuffer type:TMSystemCaptureTypeAudio];
+    }else if (connection == self.videoConnection) {
+        [_delegate captureSampleBuffer:sampleBuffer type:TMSystemCaptureTypeVideo];
     }
 }
-- (void)dealloc{
-    NSLog(@"capture销毁。。。。");
-}
+
+
 
 #pragma mark-授权相关
 /**

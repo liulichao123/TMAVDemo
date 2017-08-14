@@ -22,7 +22,9 @@
 		371681CE1F3DB61900B2F1DD /* FLVAnalysisTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681C11F3DB61900B2F1DD /* FLVAnalysisTool.m */; };
 		371681CF1F3DB61900B2F1DD /* TMAudioDataQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681C31F3DB61900B2F1DD /* TMAudioDataQueue.m */; };
 		371681D01F3DB61900B2F1DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681C51F3DB61900B2F1DD /* ViewController.m */; };
-		371681D31F3DB76B00B2F1DD /* TMVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681D21F3DB76B00B2F1DD /* TMVideoEncoder.m */; };
+		37185C9C1F405DA000E75B7E /* TMVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 37185C9B1F405DA000E75B7E /* TMVideoEncoder.m */; };
+		37185C9F1F40785900E75B7E /* TMVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 37185C9E1F40785900E75B7E /* TMVideoDecoder.m */; };
+		37187D751F417F8C00D3E715 /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37187D741F417F8C00D3E715 /* AAPLEAGLLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +56,12 @@
 		371681C31F3DB61900B2F1DD /* TMAudioDataQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMAudioDataQueue.m; sourceTree = "<group>"; };
 		371681C41F3DB61900B2F1DD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		371681C51F3DB61900B2F1DD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		371681D11F3DB76B00B2F1DD /* TMVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVideoEncoder.h; sourceTree = "<group>"; };
-		371681D21F3DB76B00B2F1DD /* TMVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMVideoEncoder.m; sourceTree = "<group>"; };
+		37185C9A1F405DA000E75B7E /* TMVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVideoEncoder.h; sourceTree = "<group>"; };
+		37185C9B1F405DA000E75B7E /* TMVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMVideoEncoder.m; sourceTree = "<group>"; };
+		37185C9D1F40785900E75B7E /* TMVideoDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMVideoDecoder.h; sourceTree = "<group>"; };
+		37185C9E1F40785900E75B7E /* TMVideoDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMVideoDecoder.m; sourceTree = "<group>"; };
+		37187D731F417F8C00D3E715 /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
+		37187D741F417F8C00D3E715 /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +152,10 @@
 		371681B11F3DB61900B2F1DD /* VideoCoder */ = {
 			isa = PBXGroup;
 			children = (
-				371681D11F3DB76B00B2F1DD /* TMVideoEncoder.h */,
-				371681D21F3DB76B00B2F1DD /* TMVideoEncoder.m */,
+				37185C9A1F405DA000E75B7E /* TMVideoEncoder.h */,
+				37185C9B1F405DA000E75B7E /* TMVideoEncoder.m */,
+				37185C9D1F40785900E75B7E /* TMVideoDecoder.h */,
+				37185C9E1F40785900E75B7E /* TMVideoDecoder.m */,
 			);
 			path = VideoCoder;
 			sourceTree = "<group>";
@@ -173,6 +181,8 @@
 		371681B61F3DB61900B2F1DD /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				37187D731F417F8C00D3E715 /* AAPLEAGLLayer.h */,
+				37187D741F417F8C00D3E715 /* AAPLEAGLLayer.m */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -285,11 +295,13 @@
 				371681CB1F3DB61900B2F1DD /* TMCaptureManager.m in Sources */,
 				371681CD1F3DB61900B2F1DD /* CommonTool.m in Sources */,
 				371681C61F3DB61900B2F1DD /* AppDelegate.m in Sources */,
-				371681D31F3DB76B00B2F1DD /* TMVideoEncoder.m in Sources */,
 				371681CA1F3DB61900B2F1DD /* TMAudioPCMPlayer.m in Sources */,
 				370D8B941F223D4200D227D7 /* main.m in Sources */,
 				371681D01F3DB61900B2F1DD /* ViewController.m in Sources */,
+				37185C9F1F40785900E75B7E /* TMVideoDecoder.m in Sources */,
 				371681C81F3DB61900B2F1DD /* TMAudioEncoder.m in Sources */,
+				37187D751F417F8C00D3E715 /* AAPLEAGLLayer.m in Sources */,
+				37185C9C1F405DA000E75B7E /* TMVideoEncoder.m in Sources */,
 				371681C71F3DB61900B2F1DD /* TMAudioDecoder.m in Sources */,
 				371681CC1F3DB61900B2F1DD /* TMSystemCapture.m in Sources */,
 				371681C91F3DB61900B2F1DD /* TMAVConfig.m in Sources */,

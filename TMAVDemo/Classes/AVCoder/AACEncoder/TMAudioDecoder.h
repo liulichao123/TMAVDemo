@@ -12,7 +12,7 @@
 
 /**AAC解码回调代理*/
 @protocol TMAudioDecoderDelegate <NSObject>
-- (void)decoderCallback:(NSData *)pcmData;
+- (void)audioDecodeCallback:(NSData *)pcmData;
 @end
 
 /**AAC解码器*/

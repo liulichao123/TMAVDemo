@@ -8,17 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import "TMAVConfig.h"
 
 /**h264编码回调代理*/
 @protocol TMVideoEncoderDelegate <NSObject>
 - (void)videoEncodeCallback:(NSData *)h264Data;
+- (void)videoEncodeCallbacksps:(NSData *)sps pps:(NSData *)pps;
 @end
 
 /**h264硬编码器*/
 @interface TMVideoEncoder : NSObject
-
+@property (nonatomic, strong) TMVideoConfig *config;
 @property (nonatomic, weak) id<TMVideoEncoderDelegate> delegate;
 
--(void)encodeSampleBuffer:(CMSampleBufferRef)smapleBuffer;
+-(void)encodeVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+
+- (instancetype)initWithConfig:(TMVideoConfig*)config;
 
 @end
