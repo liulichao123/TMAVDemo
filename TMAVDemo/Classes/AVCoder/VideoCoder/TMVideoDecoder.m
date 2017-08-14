@@ -80,7 +80,7 @@ void videoDecompressionOutputCallback(void * CM_NULLABLE decompressionOutputRefC
     }
     NSDictionary *destinationPixBufferAttrs =
     @{
-      (id)kCVPixelBufferPixelFormatTypeKey: [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange], //iOS上 nv12 而不是nv21
+      (id)kCVPixelBufferPixelFormatTypeKey: [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange], //iOS上 nv12(uvuv排布) 而不是nv21（vuvu排布）
       (id)kCVPixelBufferWidthKey: [NSNumber numberWithInteger:_config.width],
       (id)kCVPixelBufferHeightKey: [NSNumber numberWithInteger:_config.height],
       (id)kCVPixelBufferOpenGLCompatibilityKey: [NSNumber numberWithBool:true]

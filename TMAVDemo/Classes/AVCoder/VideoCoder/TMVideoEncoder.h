@@ -16,13 +16,13 @@
 - (void)videoEncodeCallbacksps:(NSData *)sps pps:(NSData *)pps;
 @end
 
-/**h264硬编码器*/
+/**h264硬编码器 (编码和回调均在异步队列执行)*/
 @interface TMVideoEncoder : NSObject
 @property (nonatomic, strong) TMVideoConfig *config;
 @property (nonatomic, weak) id<TMVideoEncoderDelegate> delegate;
 
--(void)encodeVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-
 - (instancetype)initWithConfig:(TMVideoConfig*)config;
+/**编码*/
+-(void)encodeVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
 @end

@@ -15,7 +15,7 @@
 - (void)audioDecodeCallback:(NSData *)pcmData;
 @end
 
-/**AAC解码器*/
+/**AAC解码器, 解码和回调均是异步队列*/
 @interface TMAudioDecoder : NSObject
 @property (nonatomic, strong) TMAudioConfig *config;
 @property (nonatomic, weak) id<TMAudioDecoderDelegate> delegate;
@@ -23,5 +23,6 @@
 //初始化 传入解码配置
 - (instancetype)initWithConfig:(TMAudioConfig *)config;
 
+/**解码aac*/
 - (void)decodeAudioAACData: (NSData *)aacData;
 @end

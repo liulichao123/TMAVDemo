@@ -15,7 +15,7 @@
 - (void)audioEncodeCallback:(NSData *)aacData;
 @end
 
-/**AAC硬编码器*/
+/**AAC硬编码器 (编码和回调均在异步队列执行)*/
 @interface TMAudioEncoder : NSObject
 /**编码器配置*/
 @property (nonatomic, strong) TMAudioConfig *config;
@@ -23,6 +23,6 @@
 
 /**初始化传入编码器配置*/
 - (instancetype)initWithConfig:(TMAudioConfig*)config;
-
+/**编码*/
 - (void)encodeAudioSamepleBuffer: (CMSampleBufferRef)sampleBuffer;
 @end

@@ -110,7 +110,6 @@ static OSStatus AudioDecoderConverterComplexInputDataProc(  AudioConverterRef in
             dispatch_async(_callbackQueue, ^{
                 [_delegate audioDecodeCallback:rawData];
             });
-            //[_delegate decoderCallback:rawData];
         }
         free(pcmBuffer);
     });

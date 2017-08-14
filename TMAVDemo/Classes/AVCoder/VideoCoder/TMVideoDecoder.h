@@ -15,7 +15,7 @@
 - (void)videoDecodeCallback:(CVPixelBufferRef)imageBuffer;
 @end
 
-/**h264解码器*/
+/**h264解码器 解码和回调均是异步队列*/
 @interface TMVideoDecoder : NSObject
 @property (nonatomic, strong) TMVideoConfig *config;
 @property (nonatomic, weak) id<TMVideoDecoderDelegate> delegate;

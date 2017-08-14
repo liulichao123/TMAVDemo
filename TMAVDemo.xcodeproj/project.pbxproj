@@ -141,10 +141,10 @@
 		371681AA1F3DB61900B2F1DD /* AACEncoder */ = {
 			isa = PBXGroup;
 			children = (
-				371681AB1F3DB61900B2F1DD /* TMAudioDecoder.h */,
-				371681AC1F3DB61900B2F1DD /* TMAudioDecoder.m */,
 				371681AD1F3DB61900B2F1DD /* TMAudioEncoder.h */,
 				371681AE1F3DB61900B2F1DD /* TMAudioEncoder.m */,
+				371681AB1F3DB61900B2F1DD /* TMAudioDecoder.h */,
+				371681AC1F3DB61900B2F1DD /* TMAudioDecoder.m */,
 			);
 			path = AACEncoder;
 			sourceTree = "<group>";
