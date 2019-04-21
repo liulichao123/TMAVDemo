@@ -7,10 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "TMSystemCapture.h"
+
 #import "FLVAnalysisTool.h"
 #import "TMAudioDataQueue.h"
 
+#import "TMSystemCapture.h"
 #import "TMAVConfig.h"
 #import "TMAudioEncoder.h"
 #import "TMAudioDecoder.h"
@@ -18,6 +19,7 @@
 #import "TMVideoEncoder.h"
 #import "TMVideoDecoder.h"
 #import "AAPLEAGLLayer.h"
+
 
 @interface ViewController () <TMSystemCaptureDelegate, TMAudioEncoderDelegate, TMAudioDecoderDelegate, TMVideoEncoderDelegate, TMVideoDecoderDelegate>
 
@@ -47,9 +49,10 @@
     
 //    [self testFLV];
     
-    [self testAudio];
+//    [self testAudio];
     
-//    [self testVideo];
+    
+    [self testVideo];
 }
 
 //测试解析flv
@@ -61,7 +64,7 @@
 //音频测试
 - (void)testAudio {
 //        测试写入文件
-        _path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.aac"];
+        _path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"test.aac"];
         NSFileManager *manager = [NSFileManager defaultManager];
         if ([manager fileExistsAtPath:_path]) {
             if ([manager removeItemAtPath:_path error:nil]) {
@@ -99,7 +102,7 @@
 - (void)testVideo {
     
 //    测试写入文件
-    _path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"h264test.h264"];
+    _path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"h264test.h264"];
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:_path]) {
         if ([manager removeItemAtPath:_path error:nil]) {
@@ -178,6 +181,7 @@
 //    测试写入文件
 //    [_handle seekToEndOfFile];
 //    [_handle writeData:aacData];
+
 }
 
 //aac解码回调
@@ -190,14 +194,11 @@
 - (void)videoEncodeCallbacksps:(NSData *)sps pps:(NSData *)pps {
     //解码
     [_videoDecoder decodeNaluData:sps];
-    
-//    测试写入文件
-//    [_handle seekToEndOfFile];
-//    [_handle writeData:sps];
-
-    //解码（这两个不能直接和在一起解码）
     [_videoDecoder decodeNaluData:pps];
     
+    //测试写入文件
+//    [_handle seekToEndOfFile];
+//    [_handle writeData:sps];
 //    [_handle seekToEndOfFile];
 //    [_handle writeData:pps];
 }
@@ -205,6 +206,7 @@
 - (void)videoEncodeCallback:(NSData *)h264Data {
     //编码
     [_videoDecoder decodeNaluData:h264Data];
+    
 //    测试写入文件
 //    [_handle seekToEndOfFile];
 //    [_handle writeData:h264Data];

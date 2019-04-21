@@ -11,6 +11,12 @@
 		370D8B9D1F223D4200D227D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370D8B9B1F223D4200D227D7 /* Main.storyboard */; };
 		370D8B9F1F223D4200D227D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 370D8B9E1F223D4200D227D7 /* Assets.xcassets */; };
 		370D8BA21F223D4200D227D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370D8BA01F223D4200D227D7 /* LaunchScreen.storyboard */; };
+		371209E71F4494CF006583D0 /* FLV_Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 371209E61F4494CF006583D0 /* FLV_Header.m */; };
+		371209EA1F44A5C7006583D0 /* FLV_Base_Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 371209E91F44A5C7006583D0 /* FLV_Base_Tag.m */; };
+		371209ED1F44A6A9006583D0 /* FLV_Audio_Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 371209EC1F44A6A9006583D0 /* FLV_Audio_Tag.m */; };
+		371209F01F44A6DF006583D0 /* FLV_Video_Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 371209EF1F44A6DF006583D0 /* FLV_Video_Tag.m */; };
+		371628181F459FD400A9A350 /* FLVTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 371628171F459FD400A9A350 /* FLVTestVC.m */; };
+		3716281C1F45AE4100A9A350 /* FLV_Script_Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 3716281B1F45AE4100A9A350 /* FLV_Script_Tag.m */; };
 		371681C61F3DB61900B2F1DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681A81F3DB61900B2F1DD /* AppDelegate.m */; };
 		371681C71F3DB61900B2F1DD /* TMAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681AC1F3DB61900B2F1DD /* TMAudioDecoder.m */; };
 		371681C81F3DB61900B2F1DD /* TMAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 371681AE1F3DB61900B2F1DD /* TMAudioEncoder.m */; };
@@ -34,6 +40,19 @@
 		370D8B9E1F223D4200D227D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		370D8BA11F223D4200D227D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		370D8BA31F223D4200D227D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		371209E51F4494CF006583D0 /* FLV_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLV_Header.h; sourceTree = "<group>"; };
+		371209E61F4494CF006583D0 /* FLV_Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLV_Header.m; sourceTree = "<group>"; };
+		371209E81F44A5C7006583D0 /* FLV_Base_Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLV_Base_Tag.h; sourceTree = "<group>"; };
+		371209E91F44A5C7006583D0 /* FLV_Base_Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLV_Base_Tag.m; sourceTree = "<group>"; };
+		371209EB1F44A6A9006583D0 /* FLV_Audio_Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLV_Audio_Tag.h; sourceTree = "<group>"; };
+		371209EC1F44A6A9006583D0 /* FLV_Audio_Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLV_Audio_Tag.m; sourceTree = "<group>"; };
+		371209EE1F44A6DF006583D0 /* FLV_Video_Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLV_Video_Tag.h; sourceTree = "<group>"; };
+		371209EF1F44A6DF006583D0 /* FLV_Video_Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLV_Video_Tag.m; sourceTree = "<group>"; };
+		371628141F459E8700A9A350 /* FLV_Tags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLV_Tags.h; sourceTree = "<group>"; };
+		371628161F459FD400A9A350 /* FLVTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLVTestVC.h; sourceTree = "<group>"; };
+		371628171F459FD400A9A350 /* FLVTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLVTestVC.m; sourceTree = "<group>"; };
+		3716281A1F45AE4100A9A350 /* FLV_Script_Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLV_Script_Tag.h; sourceTree = "<group>"; };
+		3716281B1F45AE4100A9A350 /* FLV_Script_Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLV_Script_Tag.m; sourceTree = "<group>"; };
 		371681A71F3DB61900B2F1DD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		371681A81F3DB61900B2F1DD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		371681AB1F3DB61900B2F1DD /* TMAudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMAudioDecoder.h; sourceTree = "<group>"; };
@@ -112,6 +131,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		371628151F459FB100A9A350 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				371681C41F3DB61900B2F1DD /* ViewController.h */,
+				371681C51F3DB61900B2F1DD /* ViewController.m */,
+				371628161F459FD400A9A350 /* FLVTestVC.h */,
+				371628171F459FD400A9A350 /* FLVTestVC.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
 		371681A61F3DB61900B2F1DD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,8 +149,7 @@
 				371681A91F3DB61900B2F1DD /* AVCoder */,
 				371681B21F3DB61900B2F1DD /* AVPlayer */,
 				371681BC1F3DB61900B2F1DD /* Other */,
-				371681C41F3DB61900B2F1DD /* ViewController.h */,
-				371681C51F3DB61900B2F1DD /* ViewController.m */,
+				371628151F459FB100A9A350 /* controllers */,
 				371681A71F3DB61900B2F1DD /* AppDelegate.h */,
 				371681A81F3DB61900B2F1DD /* AppDelegate.m */,
 			);
@@ -215,6 +244,17 @@
 			children = (
 				371681C01F3DB61900B2F1DD /* FLVAnalysisTool.h */,
 				371681C11F3DB61900B2F1DD /* FLVAnalysisTool.m */,
+				371628141F459E8700A9A350 /* FLV_Tags.h */,
+				371209E51F4494CF006583D0 /* FLV_Header.h */,
+				371209E61F4494CF006583D0 /* FLV_Header.m */,
+				371209E81F44A5C7006583D0 /* FLV_Base_Tag.h */,
+				371209E91F44A5C7006583D0 /* FLV_Base_Tag.m */,
+				371209EB1F44A6A9006583D0 /* FLV_Audio_Tag.h */,
+				371209EC1F44A6A9006583D0 /* FLV_Audio_Tag.m */,
+				371209EE1F44A6DF006583D0 /* FLV_Video_Tag.h */,
+				371209EF1F44A6DF006583D0 /* FLV_Video_Tag.m */,
+				3716281A1F45AE4100A9A350 /* FLV_Script_Tag.h */,
+				3716281B1F45AE4100A9A350 /* FLV_Script_Tag.m */,
 			);
 			path = "flv解析";
 			sourceTree = "<group>";
@@ -260,6 +300,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -298,12 +339,18 @@
 				371681CA1F3DB61900B2F1DD /* TMAudioPCMPlayer.m in Sources */,
 				370D8B941F223D4200D227D7 /* main.m in Sources */,
 				371681D01F3DB61900B2F1DD /* ViewController.m in Sources */,
+				371628181F459FD400A9A350 /* FLVTestVC.m in Sources */,
 				37185C9F1F40785900E75B7E /* TMVideoDecoder.m in Sources */,
 				371681C81F3DB61900B2F1DD /* TMAudioEncoder.m in Sources */,
+				371209F01F44A6DF006583D0 /* FLV_Video_Tag.m in Sources */,
+				371209EA1F44A5C7006583D0 /* FLV_Base_Tag.m in Sources */,
 				37187D751F417F8C00D3E715 /* AAPLEAGLLayer.m in Sources */,
 				37185C9C1F405DA000E75B7E /* TMVideoEncoder.m in Sources */,
+				371209ED1F44A6A9006583D0 /* FLV_Audio_Tag.m in Sources */,
+				371209E71F4494CF006583D0 /* FLV_Header.m in Sources */,
 				371681C71F3DB61900B2F1DD /* TMAudioDecoder.m in Sources */,
 				371681CC1F3DB61900B2F1DD /* TMSystemCapture.m in Sources */,
+				3716281C1F45AE4100A9A350 /* FLV_Script_Tag.m in Sources */,
 				371681C91F3DB61900B2F1DD /* TMAVConfig.m in Sources */,
 				371681CF1F3DB61900B2F1DD /* TMAudioDataQueue.m in Sources */,
 			);
@@ -432,7 +479,7 @@
 				INFOPLIST_FILE = TMAVDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "LIU.chatUI.AudioQueue--me";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tm.AV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -447,7 +494,7 @@
 				INFOPLIST_FILE = TMAVDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "LIU.chatUI.AudioQueue--me";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tm.AV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

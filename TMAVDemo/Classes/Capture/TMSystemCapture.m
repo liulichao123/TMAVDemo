@@ -72,15 +72,18 @@
 - (void)start{
     if (!self.isRunning) {
         self.isRunning = YES;
-        [self.captureSession startRunning];
+        dispatch_async(self.captureQueue, ^{
+            [self.captureSession startRunning];
+        });
     }
 }
 - (void)stop{
     if (self.isRunning) {
         self.isRunning = NO;
-        [self.captureSession stopRunning];
+        dispatch_async(self.captureQueue, ^{
+            [self.captureSession stopRunning];
+        });
     }
-    
 }
 
 - (void)changeCamera{

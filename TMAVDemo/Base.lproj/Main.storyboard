@@ -22,11 +22,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytk-9N-fc8">
-                                <rect key="frame" x="43" y="80" width="31" height="30"/>
+                                <rect key="frame" x="16" y="67" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="进入"/>
+                                <state key="normal" title="测试音视频编解码"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="Rg7-X7-F8A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfj-o2-naL">
+                                <rect key="frame" x="16" y="151" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="测试音视频编码后写入flv"/>
+                                <connections>
+                                    <segue destination="uBD-Fs-MaU" kind="presentation" id="rLa-3Y-6Vp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -36,6 +44,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gse-nv-Mbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-935" y="97"/>
+        </scene>
+        <!--TestVC-->
+        <scene sceneID="1bY-XU-c5g">
+            <objects>
+                <viewController id="uBD-Fs-MaU" customClass="FLVTestVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5wD-RH-Aue"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Y4-Pp-nnT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2d6-6l-19X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hE-Lx-z3b">
+                                <rect key="frame" x="36" y="57" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="start:" destination="uBD-Fs-MaU" eventType="touchUpInside" id="nuK-tp-t6R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zh-ma-Nad">
+                                <rect key="frame" x="36" y="111" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="停止"/>
+                                <connections>
+                                    <action selector="stop:" destination="uBD-Fs-MaU" eventType="touchUpInside" id="DmP-OR-yen"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FH5-Du-0Ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-106" y="386"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -87,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-119" y="97"/>
+            <point key="canvasLocation" x="-106" y="-374"/>
         </scene>
     </scenes>
 </document>

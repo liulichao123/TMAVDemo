@@ -11,24 +11,51 @@
 @implementation FLVAnalysisTool
 
 
-- (void)test {
-    NSString *path = @"/Users/quanzizhangben/Desktop/test.flv";
-    NSData *fileData = [NSData dataWithContentsOfFile:path];
+- (void)testInt24 {
+    NSString *dir = @"/Users/quanzizhangben/Desktop";
+    NSString *path = [dir stringByAppendingPathComponent:@"test.flv"];
+    //    存
+    uint32_t t = 0x00000001;
+    t = htonl(t) >> 8; //0x01000000 ->  0x00010000
+    uint8_t *pt = malloc(3);
+    memcpy(pt, &t, 3);
+    [[NSData dataWithBytes:pt length:3] writeToFile:path atomically:YES];
+    //    取
+    NSData *d1 = [NSData dataWithContentsOfFile:path];
+    uint8_t *px = d1.bytes;
+    uint32_t x ;
+    memcpy(&x, px, 3);
+    x = ntohl(x) >> 8;
     
-    //    [self decoderFLVHeader:[self createFLVHeader]];
+    return;
+}
+
+- (void)test {
+    
+    NSString *dir = @"/Users/quanzizhangben/Desktop/dangerous";
+    NSString *path = [dir stringByAppendingPathComponent:@"test.flv"];
+    NSString *path1 = [dir stringByAppendingPathComponent:@"testHeader.flv"];
+
+//    [self decoderFLVHeader:[self createFLVHeader]];
+     NSData *fileData = [NSData dataWithContentsOfFile:path];
     [self decoderFLV:fileData];
+    
+//    [testHeader writeToFile:path1 atomically:true];
+//    NSData *testHeader = [self createFLVHeader];
+//    [self decoderFLVHeader:testHeader];
+    
 }
 
 - (NSData *)createFLVHeader {
-    int8_t *headerData = malloc(36);
-    memset(headerData, 0, 36);
+    int8_t *headerData = malloc(9);
+    memset(headerData, 0, 9);
     
     int8_t signatureF = 0x46;
     int8_t signatureL = 0x4c;
     int8_t signatureV = 0x56;
     int8_t vertion = 1;
     int8_t flag = 0x04;
-    int32_t headerSize = 9;//
+    int32_t headerSize = 9;//4 byte
     
     //FLV
     *headerData = signatureF;
@@ -47,8 +74,10 @@
     
     //headerSize
     ++headerData;
-    *headerData = headerSize;
+    headerSize = htonl(headerSize);
+    memcpy(headerData, &headerSize, 4);
     
+    //回到起点
     headerData -= 5;
     
     return [NSData dataWithBytes:headerData length:9];
@@ -197,8 +226,8 @@ void handleScriptData(uint8_t *sd) {
     sd += 4;
     
     NSLog(@"-------------------ECMA array map---------------------");
-    uint16_t keyLen;
-    uint8_t dataType;
+    uint16_t keyLen;//key的长度
+    uint8_t dataType;   // value 值的类型
     /**ECMA array里面的 map, key 都是string 类型，type都等于0x02,直接不用管即可，key前面的字节为key的长度，没有0x02
      里面是key-value形式，value的值不需要进行大小端转换，但其他带含义字段需要，比如key的长度
      */
@@ -212,7 +241,7 @@ void handleScriptData(uint8_t *sd) {
         sd += keyLen;
         
         //data
-        dataType = *sd;
+        dataType = *sd; //1 byte
         sd++;
         //    0 = Number type   8字节
         //    1 = Boolean type  1字节
